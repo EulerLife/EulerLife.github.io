@@ -300,11 +300,29 @@
   
   
   
-
+  
   
 
   
 
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2020/02/25/hello-world/",
+  owner: 'EulerLife',
+  repo: 'Talk',
+  oauth: {
+    client_id: '5cedc7eb8adb7b085096',
+    client_secret: '23bd080183b17add6058ca59a0afcaff4768441f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
