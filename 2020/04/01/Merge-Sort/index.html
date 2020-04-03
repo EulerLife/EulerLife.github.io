@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>几何基础-命题1 | 我的十一维世界</title>
+  <title>归并排序 | 我的十一维世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命题1：若两个三角形两边即两边的夹角相等，那么这两个三角形全等.">
+  <meta name="description" content="排序问题与顺序统计量 归并排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="几何基础-命题1">
-<meta property="og:url" content="http://yoursite.com/2020/03/02/geometry-1/index.html">
+<meta property="og:title" content="归并排序">
+<meta property="og:url" content="http://yoursite.com/2020/04/01/Merge-Sort/index.html">
 <meta property="og:site_name" content="我的十一维世界">
-<meta property="og:description" content="命题1：若两个三角形两边即两边的夹角相等，那么这两个三角形全等.">
+<meta property="og:description" content="排序问题与顺序统计量 归并排序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/03/02/geometry-1/geometry-1.png">
-<meta property="article:published_time" content="2020-03-02T02:22:45.000Z">
-<meta property="article:modified_time" content="2020-03-13T13:01:43.817Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/01/Merge-Sort/1.gif">
+<meta property="article:published_time" content="2020-04-01T06:45:34.000Z">
+<meta property="article:modified_time" content="2020-04-03T00:52:51.415Z">
 <meta property="article:author" content="Cogito">
-<meta property="article:tag" content="几何基础">
+<meta property="article:tag" content="Algorithms">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/02/geometry-1/geometry-1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/01/Merge-Sort/1.gif">
   
     <link rel="alternative" href="/atom.xml" title="我的十一维世界" type="application/atom+xml">
   
@@ -153,30 +153,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-geometry-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Merge-Sort" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      几何基础-命题1
+      归并排序
     </h1>
   
 
         
-        <a href="/2020/03/02/geometry-1/" class="archive-article-date">
-  	<time datetime="2020-03-02T02:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
+        <a href="/2020/04/01/Merge-Sort/" class="archive-article-date">
+  	<time datetime="2020-04-01T06:45:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>命题1：若两个三角形两边即两边的夹角相等，那么这两个三角形全等.</em><br><a id="more"></a><br><img src="/2020/03/02/geometry-1/geometry-1.png" alt><br><strong>已知</strong> $\triangle$ABC与$\triangle$DEF中，AB = DE, AC = DF, $\angle$BAC = $\angle$EDF<br><strong>求证</strong> $\triangle$ABC$\triangle$DEF</p>
-<p><strong>证明</strong>  将点A置于点D上, $\because$ AB = DE $\therefore$ 点B也与点E重合<br>    又$\because$ $\angle$BAC = $\angle$EDF  $\therefore$ 点C在直线DF上<br>    $\because$ AC = DF  $\therefore$ 点C与点F重合<br>    $\therefore$ $\triangle$ABC$\cong$$\triangle$DEF<br><strong>Q.E.D.</strong></p>
-<hr>
-<p><strong>后记</strong> 在各种地方，全等号都是不一样的== 所以我准备专门研究一下，来写一篇blog.</p>
+        <p><em>排序问题与顺序统计量 归并排序</em><br><a id="more"></a></p>
+<h3 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h3><ul>
+<li>递归：为解决一个问题，先调用自身去解决子问题.</li>
+<li>分治：将原问题分解为较小却与原问题类似的子问题(规模较小，相关相似)，递归求解子问题。得到解后合并解以得到原问题的解。步骤可分为三步：<script type="math/tex; mode=display">\textbf{分解}\rightarrow\textbf{解决}\rightarrow\textbf{合并}</script></li>
+</ul>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序<strong>完全</strong>遵循分治三步骤，如下.</p>
+<ul>
+<li><strong>分解：</strong> 把有$n$个元素的初始数组分为各有$\frac{n}{2}$的2个子序列.</li>
+<li><strong>解决：</strong> 在这2个子序列上运用归并排序.</li>
+<li><strong>合并：</strong> 合并2个子序列，产生有序数组.<br>如下图，演示归并排序的过程：<del>图是我盗的</del><br><img src="/2020/04/01/Merge-Sort/1.gif" alt="演示"></li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(T <span class="built_in">array</span>[], <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	T* temp = <span class="keyword">new</span> T[left + right]; </span><br><span class="line">	<span class="keyword">int</span> i =  left, j = mid, tot = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i &lt; mid &amp;&amp; j &lt; right) &#123;										<span class="comment">// 复制到临时的数组</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt;= <span class="built_in">array</span>[j])</span><br><span class="line">			temp[tot ++] = <span class="built_in">array</span>[i ++];</span><br><span class="line">		<span class="keyword">else</span> temp[tot ++] = <span class="built_in">array</span>[j ++]; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i &lt; mid) temp[tot ++] = <span class="built_in">array</span>[i ++];</span><br><span class="line">	<span class="keyword">while</span>(j &lt; right) temp[tot ++] = <span class="built_in">array</span>[j ++];						   <span class="comment">// 把结果复制到原数组</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i = left, tot = <span class="number">0</span>; i &lt; right; i ++, tot ++) <span class="built_in">array</span>[i] = temp[tot];  <span class="comment">// 复制剩下的结果</span></span><br><span class="line">	<span class="keyword">delete</span>[] temp; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(T <span class="built_in">array</span>[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;						<span class="comment">// 划分数组</span></span><br><span class="line">	<span class="keyword">if</span>(left &lt; right) &#123;</span><br><span class="line">		MergeSort(<span class="built_in">array</span>, left, mid);      				<span class="comment">// 递归排序左序列</span></span><br><span class="line">		MergeSort(<span class="built_in">array</span>, mid + <span class="number">1</span>, right);				<span class="comment">// 递归排序右序列</span></span><br><span class="line">		Merge(<span class="built_in">array</span>, left, mid + <span class="number">1</span>, right + <span class="number">1</span>); 		<span class="comment">// 合并左右已排序数组</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>根据分治法的基本步骤可得 一个分治排序的运行时间由<strong>分解时间</strong> + <strong>解决子问题时间</strong> + <strong>合并时间</strong>.即<br>$T(n)=\begin{cases}\Theta(1)&amp;n\leqslant c\\aT(n/b)+F(n)+G(n)&amp;else\ cases<br>\end{cases}$<br>其中$c$为分治的最小常数，$F(n)$为分解的时间，$G(n)$为合并的时间.<br>在归并排序中，它的值如下：</p>
+<ul>
+<li>分解：基本情况为$n=1$，分解的复杂度即计算中间值 $F(n)=\Theta(1)$</li>
+<li>解决：递归求解子数组，分成2个规模为$\dfrac{n}{2}$的子问题，为$2T(\dfrac{n}{2})$</li>
+<li>合并：将两个子数组合并的复杂度即为$Merge$的复杂度，由上可知，为线性时间.即$G(n)=\Theta(n)$<br>$\therefore T(n)=\begin{cases}\Theta(1)&amp;n= 1\\2T(n/2)+\Theta(n)&amp;else\ cases<br>\end{cases}$<br>我们可以知道，此递归式的解为$T(n)=\Theta(n\log_2n)$</li>
+</ul>
 
       
 
@@ -190,7 +204,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">几何基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
         		</li>
       		
 		</ul>
@@ -246,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/02/geometry-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/01/Merge-Sort/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,18 +274,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/09/Insertion-Sort/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          插入排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">诸论</div>
+    <a href="/2020/03/18/Music/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Music</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -298,7 +303,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#分治法"><span class="toc-number">1.</span> <span class="toc-text">分治法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#归并排序"><span class="toc-number">2.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分析"><span class="toc-number">4.</span> <span class="toc-text">分析</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -329,7 +334,7 @@
 
   <script>
     var gitment = new Gitment({
-    id: "Mon Mar 02 2020 10:22:45 GMT+0800",
+    id: "Wed Apr 01 2020 14:45:34 GMT+0800",
     owner: 'EulerLife',
     repo: 'Talk',
     oauth: {

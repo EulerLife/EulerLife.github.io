@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>插入排序 | 我的十一维世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="排序问题与顺序统计量">
+  <meta name="description" content="排序问题与顺序统计量 插入排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序">
 <meta property="og:url" content="http://yoursite.com/2020/03/09/Insertion-Sort/index.html">
 <meta property="og:site_name" content="我的十一维世界">
-<meta property="og:description" content="排序问题与顺序统计量">
+<meta property="og:description" content="排序问题与顺序统计量 插入排序">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-09T06:25:10.000Z">
-<meta property="article:modified_time" content="2020-04-01T03:02:06.284Z">
+<meta property="article:modified_time" content="2020-04-01T06:48:58.844Z">
 <meta property="article:author" content="Cogito">
 <meta property="article:tag" content="Algorithms">
 <meta name="twitter:card" content="summary">
@@ -79,7 +79,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">Talk</a>
     			
             
 		</nav>
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>排序问题与顺序统计量</em><br><a id="more"></a></p>
+        <p><em>排序问题与顺序统计量 插入排序</em><br><a id="more"></a></p>
 <h3 id="一、排序问题"><a href="#一、排序问题" class="headerlink" title="一、排序问题"></a>一、排序问题</h3><p>排序问题在生活与工作中有着广泛应用.例如 打牌时，一个聪明的牌手会先把自己的牌排序(插入排序事实上就是来源于此)；在工程中的选材问题，选大小长短质量都与此有关.由此可见，排序是一个极为重要的问题.看起来它十分简单，确实如此，它是算法中最为基础的一个操作(甚至可以视为”基本操作”)下面给出它的形式化描述：  </p>
 <p><strong>输入(Input):</strong> $ \{a_1,a_2,a_3…,a_n \} $ 有n个元素的一个序列.<br><strong>输出(Output):</strong> 输入序列的一个排列$ \{a_1’,a_2’,a_3’,…,a_n’\}$， 满足$ a_1’\leqslant a_2’\leqslant a_3’\leqslant..\leqslant a_n’$.</p>
 <blockquote>
@@ -195,7 +195,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RecursiveInsertionSort</span><span class="params">(T A[], <span class="keyword">int</span> ArraySize)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Base case</span></span><br><span class="line">    <span class="keyword">if</span>(ArraySize &lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将1...n-1的元素排序</span></span><br><span class="line">    RecursiveInsertionSort(A, ArraySize<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Insert last element at its correct position in Sort Array.</span></span><br><span class="line">    T key = A[n - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = n - <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动此元素到合适位置</span></span><br><span class="line">    <span class="keyword">while</span>(i &gt; <span class="number">0</span> &amp;&amp; A[i] &gt; key) &#123;</span><br><span class="line">        A[i + <span class="number">1</span>] = A[i];</span><br><span class="line">        i = i - <span class="number">1</span>; <span class="comment">// i--;</span></span><br><span class="line">    &#125;</span><br><span class="line">    A[i + <span class="number">1</span>] = key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>§2.4 算法分析</strong><br>三要素：<br><strong>输入规模</strong> 数组的长度，即为n<br><strong>运行时间</strong> 函数$T(n)$为一个关于n的函数，用于描述算法的运行时间.<br>比较代数式是一个难以实现的方法，我们实际上只关心$T(n)$的增长量级与增长率.因此，我们用<strong>渐进记号</strong>来衡量$T(n)$的增长(在本文中假定你已经明白它了)<br><strong>简单分析</strong><br><strong>最坏时间复杂度</strong> 当输入数据为A[0:n]的逆序时,第一个元素比较0次,第k个元素比较看k-1次.所以总次数为$0+1+2+…+n-1=\frac{n(n-1)}{2}$即$T_{max}(n)=\frac{n(n-1)}{2}=\Theta(n^2)$<br><strong>最好时间复杂度</strong> 为已排序,直接扫描一遍$T_{min}(n)=n-1=\Theta(n)$<br>综上所述，插入排序的时间复杂度为$\Theta(n^2)$,空间复杂度为$\Theta(1)$</p>
 <h3 id="三、后记"><a href="#三、后记" class="headerlink" title="三、后记"></a>三、后记</h3><p>在看完了此篇文章后，有以下问题留给读者解决。<br><strong>1. 查找问题：</strong><br><strong>输入</strong> n个数的序列A,和一个值$key$<br><strong>输出</strong> 下标$i$使得$A_i=key$.当值$key$不在A中出现时,返回特殊值$NIL$.<br><strong>2. 二分查找：</strong><br><strong>输入输出同上，但是要求时间复杂度为$\Theta(\log_2n)$</strong><br><strong>3. 二分插入排序</strong> 考虑在插入排序中运用二分查找。运用此方法，时间复杂度有优化吗？</p>
-<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><p>[1] Thomas H. Cormen, Charles E. Leiserson,   Ronald L. Rivest, Clifford Stein <em>Introduction To Algorithms</em></p>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><p>[1] Thomas H. Cormen, Charles E. Leiserson,   Ronald L. Rivest, Clifford Stein <em>Introduction To Algorithms Third Edition</em> </p>
 
       
 
@@ -452,7 +452,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">Talk</a></li>
       
         
     </ul>
@@ -560,7 +560,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">我思故我在</div>
   	  	
     	</section>
     
