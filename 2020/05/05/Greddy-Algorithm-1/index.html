@@ -16,7 +16,7 @@
 <meta property="og:description" content="贪心算法贪心算法(Greedy Algorithm)用于解决最优化问题。它是一种强有力的算法，其时间复杂度通常为线性的。  因为其复杂度为线性，所以其求解的问题通常为一维的决策问题  在原问题的每个抉择中，贪心算法总是做出在当前看来最优的解，以希望得到全局最优解.(局部最优-&gt;全局最优) 性质 贪心选择(Greedy-Choice)可以通过做出局部最优解得到全局最优解. 最优子结构(Opti">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-05T06:07:58.000Z">
-<meta property="article:modified_time" content="2020-05-05T07:04:46.463Z">
+<meta property="article:modified_time" content="2020-05-07T02:15:09.314Z">
 <meta property="article:author" content="Cogito">
 <meta property="article:tag" content="Algorithms">
 <meta name="twitter:card" content="summary">
@@ -171,16 +171,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h6><p>贪心算法(Greedy Algorithm)用于解决最优化问题。它是一种强有力的算法，其时间复杂度通常为线性的。</p>
+        <h5 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h5><p>贪心算法(Greedy Algorithm)用于解决最优化问题。它是一种强有力的算法，其时间复杂度通常为线性的。</p>
 <blockquote>
 <p>因为其复杂度为线性，所以其求解的问题通常为一维的决策问题</p>
 </blockquote>
 <p>在原问题的每个抉择中，贪心算法总是做出在当前看来最优的解，以希望得到全局最优解.(局部最优-&gt;全局最优)</p>
-<h6 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h6><ul>
+<h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><ul>
 <li>贪心选择(Greedy-Choice)<br>可以通过做出局部最优解得到全局最优解.</li>
 <li>最优子结构(Optimal Substructure)<br>一个问题的最优解包含了其子问题的最优解.</li>
 </ul>
-<h6 id="问题实例"><a href="#问题实例" class="headerlink" title="问题实例"></a>问题实例</h6><p>1.背包问题+贪心<br>2.区间问题+贪心<br>3.Huffman编码<br>4.Johnson算法</p>
+<h5 id="问题实例"><a href="#问题实例" class="headerlink" title="问题实例"></a>问题实例</h5><p>1.背包问题+贪心<br>2.区间问题+贪心<br>3.Huffman编码<br>4.Johnson算法</p>
 
       
 
@@ -293,7 +293,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#贪心算法"><span class="toc-number">1.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#性质"><span class="toc-number">2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#问题实例"><span class="toc-number">3.</span> <span class="toc-text">问题实例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#贪心算法"><span class="toc-number">1.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#性质"><span class="toc-number">2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#问题实例"><span class="toc-number">3.</span> <span class="toc-text">问题实例</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,7 +449,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color3">Physics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,11 +457,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">几何基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Physics</a>
+                <a href="javascript:void(0)" class="js-tag color5">几何基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -618,21 +618,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    tex2jax: {
-    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    processEscapes: true
-    }
-    });
-    MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax();
-    for (var i = 0; i < all.length; ++i)
-    all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
